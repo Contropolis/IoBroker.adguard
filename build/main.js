@@ -57,11 +57,11 @@ class Adguard extends utils.Adapter {
         this.log.debug("config password: *******");
         // Check the server address was passed with http or https
         if (this.config.serverAddress.startsWith("http")) {
-            serverAddress = this.config.serverAddress;
+            serverAddress = this.config.serverAddress +":8080";
         }
         else {
             // If not append http
-            serverAddress = "http://" + this.config.serverAddress;
+            serverAddress = "http://" + this.config.serverAddress +":8080";
         }
         // Set authtenfication in axios options
         axiosOptions = { auth: { username: this.config.user, password: this.config.password }, httpsAgent: new https.Agent({ rejectUnauthorized: false }) };
